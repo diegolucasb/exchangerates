@@ -1,8 +1,12 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+
+apply from: '../static-analysis/lint.gradle'
+apply from: '../static-analysis/ktlint.gradle'
+apply from: '../static-analysis/detekt.gradle'
+
+check.dependsOn 'ktlint', 'detekt'
 
 android {
     compileSdkVersion 28
