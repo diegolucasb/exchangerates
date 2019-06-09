@@ -15,9 +15,16 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            buildConfigField("okhttp3.logging.HttpLoggingInterceptor.Level", "LOG_LEVEL", "okhttp3.logging.HttpLoggingInterceptor.Level.BODY")
+            buildConfigField("String", "API_URL", '"https://api.exchangeratesapi.io/"')
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField("okhttp3.logging.HttpLoggingInterceptor.Level", "LOG_LEVEL", "okhttp3.logging.HttpLoggingInterceptor.Level.NONE")
+            buildConfigField("String", "API_URL", '"https://api.exchangeratesapi.io/"')
         }
     }
 }
