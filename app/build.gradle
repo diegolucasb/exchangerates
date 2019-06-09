@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "dev.lucasdabs.exchangerates"
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
+    implementation "com.android.support:recyclerview-v7:$support_version"
+
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.robolectric:robolectric:$roboletric_version"
+    testImplementation "androidx.test:core:$androidx_test"
+
+
+    testImplementation "io.mockk:mockk:$mockk_version"
+
+    androidTestImplementation "androidx.test:rules:$support_test_runner_version"
+    androidTestImplementation "androidx.test:runner:$support_test_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.core:core-ktx:$ktx_version"
+
+    //network communication dependencies
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+
+    //Paging
+    implementation "android.arch.paging:runtime:$paging_version"
+
+    //rx java for Android
+    implementation "io.reactivex.rxjava2:rxjava:$rx_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
+
+    //dependency injection lib
+    implementation "org.kodein.di:kodein-di-generic-jvm:$kodein_version"
+    implementation "org.kodein.di:kodein-di-framework-android-support:$kodein_version"
+}
