@@ -10,5 +10,4 @@ interface RatesService {
 
     @GET("latest")
     fun fetchData(@Query("base") currency: Currency): Observable<Exchange>
-
 }

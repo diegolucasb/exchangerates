@@ -11,7 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import java.util.concurrent.TimeUnit
 
-class MainViewModel(private val repository: ExchangeRepository): ViewModel() {
+class MainViewModel(private val repository: ExchangeRepository) : ViewModel() {
 
     companion object {
         private const val REFRESH_TIME = 30L
@@ -47,5 +47,4 @@ class MainViewModel(private val repository: ExchangeRepository): ViewModel() {
     override fun onCleared() {
         compositeDisposable.clear()
     }
-
 }

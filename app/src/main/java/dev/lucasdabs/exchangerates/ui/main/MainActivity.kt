@@ -17,7 +17,6 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.android.kodein
 import org.kodein.di.android.support.kodein
 import org.kodein.di.generic.instance
-import java.security.SecureRandom
 import java.util.*
 
 class MainActivity : AppCompatActivity(), LifecycleOwner, KodeinAware {
@@ -48,11 +47,11 @@ class MainActivity : AppCompatActivity(), LifecycleOwner, KodeinAware {
             textViewCurrencyFrom.text = it.base
 
             val usdRate = it.rates[it.base]
-            textViewRateFrom.text = usdRate?:getString(R.string.zero_value)
+            textViewRateFrom.text = usdRate ?: getString(R.string.zero_value)
 
             val plnRate = it.rates[Currency.PLN.toString()]
             textViewCurrencyTo.text = Currency.PLN.toString()
-            textViewRateTo.text = plnRate?:getString(R.string.zero_value)
+            textViewRateTo.text = plnRate ?: getString(R.string.zero_value)
 
             textViewUpdateAt.text = String.format(
                 getString(R.string.updated_at),
@@ -60,7 +59,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner, KodeinAware {
         })
 
         viewModel.state.observe(this, Observer {
-            when(it) {
+            when (it) {
                 State.LOADING -> loading()
                 State.DONE -> done()
                 State.ERROR -> error()

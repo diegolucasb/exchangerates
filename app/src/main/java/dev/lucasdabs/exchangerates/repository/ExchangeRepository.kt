@@ -10,5 +10,4 @@ class ExchangeRepository(private val ratesService: RatesService) {
         ratesService
             .fetchData(currency)
             .subscribeOn(Schedulers.newThread())
-
 }
