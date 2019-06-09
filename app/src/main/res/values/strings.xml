@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">exchange-rates</string>
+    <string name="currency_rate_title">Currency Rate</string>
+    <string name="error_fetch_data">Something went wrong. Please try again later</string>
+    <string name="zero_value">0.00</string>
+    <string name="updated_at">Last update: %s at %s</string>
 </resources>
