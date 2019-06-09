@@ -10,14 +10,11 @@ import kotlin.reflect.KClass
 
 object Injector {
 
-    fun retrofitModule() = Kodein.Module("api") {
-        bind<RestClient>() with singleton {
-            val retrofit = RestClient()
-            retrofit
-        }
+    fun apiModule() = Kodein.Module("api") {
+        bind<RestClient>() with singleton { RestClient() }
     }
 
-    inline fun <reified T : Any> bindGenericService(service: KClass<T>, name: String) =
+    inline fun <reified T : Any> bindservice(service: KClass<T>, name: String) =
         Kodein.Module(name) {
             bind<T>() with provider {
                 instance<RestClient>().buildCall(service)
