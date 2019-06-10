@@ -3,6 +3,7 @@ package dev.lucasdabs.exchangerates.ui.main
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import dev.lucasdabs.exchangerates.R
 import dev.lucasdabs.exchangerates.extension.format
@@ -11,6 +12,7 @@ import org.junit.Rule
 import org.junit.Test
 import java.util.*
 
+@LargeTest
 class MainActivityTest {
 
     @get:Rule
@@ -32,9 +34,8 @@ class MainActivityTest {
 
         Thread.sleep(5000)
 
-        val currentDate = Date().format()
         onView(withId(R.id.textViewUpdateAt))
-            .check(matches(withText(CoreMatchers.containsString(currentDate))))
+            .check(matches(withText(CoreMatchers.containsString("Last update:"))))
 
         onView(withId(R.id.textViewTitle))
             .check(matches(withText(R.string.currency_rate_title)))
