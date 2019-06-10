@@ -9,6 +9,11 @@ apply from: '../static-analysis/detekt.gradle'
 check.dependsOn 'ktlint', 'detekt'
 
 android {
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
+
     compileSdkVersion 28
     defaultConfig {
         applicationId "dev.lucasdabs.exchangerates"
@@ -44,6 +49,7 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.robolectric:robolectric:$roboletric_version"
     testImplementation "androidx.test:core:$androidx_test"
+    testImplementation "android.arch.core:core-testing:$arch_core_test_version"
 
 
     testImplementation "io.mockk:mockk:$mockk_version"
@@ -61,9 +67,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-
-    //Paging
-    implementation "android.arch.paging:runtime:$paging_version"
 
     //rx java for Android
     implementation "io.reactivex.rxjava2:rxjava:$rx_version"
