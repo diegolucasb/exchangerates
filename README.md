@@ -1,33 +1,27 @@
-# MyTaxi Android challenge
-You can download the APK [here](https://github.com/diegolucasb/mytaxi-android-challenge/tree/master/apk) or see the [images](https://github.com/diegolucasb/mytaxi-android-challenge/tree/master/screenshots) here.
-
-## Assumption I made
-- As I could see, the list of vehicles we fetch from the endpoint has some random position because it is weird to see that some position were above the river for example. So I assumed that it is ok since the data seems to be mocked.
-
-- I assumed that the property `heading` from `Vehicle` was the angle of the front of the car. So, my car image vector starts heading at zero angles and it rotated on the map according to retrieved `heading` property.
-
-- As I'm not a good designer at all, I also assumed that is ok my poor layout and the terrible icons and colors I choose. Sorry for that :-D 
+# Exchange rates - Android App Sample
+You can download the APK [here](https://github.com/diegolucasb/exchangerates/tree/master/apk).
 
 ## About the project
-The project is in `Kotlin`, implemented following `MVP pattern` with dependency injection using `Kodein`. For retrieving data from the network I used `Retrofit` and implemented, what I called `handler` to abstract the data load (`repository pattern`). 
- 
-In `VehicleHandler` class you can see two functions to get data from Retrofit. One of them is using `RxJava` and the other is using simple `Callback<T>`. I did this to demonstrate how I believe how easy is to change the data retrieve implementation.
+An Android app that displays current “USD” and “PLN” currency rates from this endpoint https://api.exchangeratesapi.io/latest. It is refreshed every 30 seconds.
 
-The project is on a private repository on Github. It was developed using [gitflow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) so you can check the commits and the progress of the development. Please, give me a git user which I can add as a collaborator of this repository.
+The project was written 100% in `Kotlin`, implemented MVVM pattern with dependency injection using [`Kodein`](https://kodein.org/Kodein-DI/). For retrieving data from the network `Retrofit` with `RxJava` was used. 
+Also a `repository` pattern to abstract the data load was implemented.
 
-Stack I used:
+The project was developed using [gitflow](https://datasift.github.io/gitflow/IntroducingGitFlow.html)
+
+## What the project uses:
 * Android Gradle Plugin 3+
-* Android API 19+
+* Android API 24+
 * Kotlin
-* MVP Pattern
+* MVVM
 * Retrofit
-* Kodein
 * RxJava
+* Kodein
 * GSon
 * JUnit
-* Espresso
-* Roboletric
 * Mockk
+* Robolectric
+* Espresso
 * Ktlint
 * Detekt
 
@@ -38,15 +32,14 @@ Stack I used:
 ## Lint
 Android SDK already has a [lint](https://developer.android.com/studio/write/lint.html) 
 toolkit so if you want to edit the severity of problems jumps to ```lint.xml``` in this project. 
+It also uses [ktlint](https://ktlint.github.io/) and [detekt](https://github.com/arturbosch/detekt) for code smells.
+To run it: ```./gradlew check```
 
-I also used [ktlint](https://ktlint.github.io/) and [detekt](https://github.com/arturbosch/detekt) for code smells
-
-## TODO: Improvements if I have more time, I would
+## TODO: Improvements
 - definitely, do a better UI
 - cache strategy
 - increase code coverage
-- used a better solution for [`idleResource`](https://developer.android.com/training/testing/espresso/idling-resource), but I preferred using `Thread.sleep` to keep it simple.
-- refactor VehicleMapActivity
+- used a better solution for [`idleResource`](https://developer.android.com/training/testing/espresso/idling-resource) on Espresso test, but it was used `Thread.sleep` to keep it simple.
 
 ## Author
 Build with ❤️ and any feedback is welcome
