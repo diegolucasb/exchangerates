@@ -5,7 +5,6 @@ import dev.lucasdabs.exchangerates.api.data.Exchange
 import dev.lucasdabs.exchangerates.api.service.RatesService
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
-import java.util.*
 
 class ExchangeRepository(private val ratesService: RatesService) {
 
