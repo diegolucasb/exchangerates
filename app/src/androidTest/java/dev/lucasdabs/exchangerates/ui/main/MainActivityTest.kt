@@ -6,7 +6,6 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import dev.lucasdabs.exchangerates.R
-import dev.lucasdabs.exchangerates.extension.format
 import org.hamcrest.CoreMatchers
 import org.junit.Rule
 import org.junit.Test
