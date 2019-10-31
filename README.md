@@ -43,3 +43,4 @@ To run it: ```./gradlew check```
 
 ## Author
 Build with ❤️ and any feedback is welcome
+Lucas Diego Amaral
